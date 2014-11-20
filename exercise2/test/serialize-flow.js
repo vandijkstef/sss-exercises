@@ -1,12 +1,14 @@
+
+// Rename to flow.js
 var serializeFlow = require('../lib/serialize-flow'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 describe('SerializeFlow', function(){
 
-  it('executes an array of functions in serial sequencing', function(done){
+  it('should execute an array of functions in serial sequencing', function(done){
 
-    // Util function to wrap a function with a delay to simulate 
+    // Util function to wrap a function with a delay to simulate
     // an asynchronous function
     var delayWithSpy = function(ms, spy){
       return function(callback){
@@ -23,9 +25,9 @@ describe('SerializeFlow', function(){
     var spy2 = sinon.spy();
     var spy3 = sinon.spy();
 
-    var methods = { 
-      func0: delayWithSpy(10, spy1), 
-      func1: delayWithSpy(5, spy2), 
+    var methods = {
+      func0: delayWithSpy(10, spy1),
+      func1: delayWithSpy(5, spy2),
       func2: delayWithSpy(2, spy3)
     };
 
