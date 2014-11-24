@@ -15,24 +15,46 @@ To get you running quickly. [Fork this repo](https://github.com/CMDA/sss-exercis
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
 
 ## Task 1
-In this course, [expressjs]() will be used as framework. This framework offers a 
+In this course, [expressjs]() will be used as framework. This framework offers an accessible way of working with the Node.js [```http```](http://nodejs.org/api/http.html). In this task you will get familiar with basic structuring of an application.
 
-In this task you will get familiar with basic structuring of an application.
+1. Start the server with ```node index.js```
+2. Open [http://localhost:3000](http://localhost:3000)
+4. Add a image to the ```public/images``` directory in the public folder. You can find a reference in the ```data``` directory.
+5. Point your browser to ```http://localhost:3000/images/your-filename```, is the image served?
+6. 
 
 ```
-├── README.md
-├── index.js
-├── lib
-│   ├── serialize-flow.js
-│   └── server.js
-├── task4.js
-├── task5.js
-└── test
-    ├── serialize-flow.js
-    └── server.js
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+├── routes
+│   ├── index.js
+├── views
+│   └── index.ejs
+├── app.js
+└── package.json
 ```
 
+### The public folder
+The public folder is used for storing content that isn't generated, also called static content, e.g. images, (client-side) javascript and stylesheets. But also for user uploaded files. Serving these assets is handled by [express.static](http://expressjs.com/guide/using-middleware.html#express.static). 
+
+```
+// Setup serving static assets
+app.use(express.static('public'));
+```
+
+
+### Routes folder
+The task of the routers is
 res.send
+res.render
+
+### Views
+
+### app.js
+
+### package.json
 
 
 ### Extra task
@@ -49,6 +71,13 @@ Nodemon helps with this
 Request params and named params
 
 ## Task 3
+
+
+## Task 4
+
+
+
+## Task 3
 In node.js quite a portion of code, requires you to understand asynchronicity. In node.js an asynchronous code typically takes a callback, that is executed once its work is completed. Sometimes however you require the first asynchronous function call to be completed before the second one. 
 
 1. Open ```lib/serialize-flow.js```.
@@ -59,13 +88,7 @@ In node.js quite a portion of code, requires you to understand asynchronicity. I
 5. Run ```$ npm run test:task4``` to test your implementation. All green? Well done!
 
 
-## Task 3
-
-
 ## Wrapping up
-
-
-As last, it is advisable to commit and push your solutions because they will help you with the final assignment and prepare the exams. Pushing your code will make sure that your code is backed up by GitHub. 
 
 
 
